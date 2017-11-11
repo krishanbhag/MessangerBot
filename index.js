@@ -18,13 +18,12 @@ app.get('/',function(req,res) {
 })
 app.get('/webhook/',function(req,res) {
 
-	res.send('167308528')
-	// if (req.query['hub.verify_token'] === "admin@1023") {
-	// 	req.send(req.query['hub.challenge'])
-	// }
-	// else {
-	// 	req.send("wrong token")
-	// }
+	if (req.query['hub.verify_token'] === "admin@1023") {
+		res.send(req.query['hub.challenge'])
+	}
+	else {
+		res.send("wrong token")
+	}
 })
 app.listen(app.get('port'),function() {
  
