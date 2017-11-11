@@ -17,34 +17,31 @@ app.get('/',function(req,res) {
 
 })
 let tok = "EAAM6vqeZBUsQBAEh4lyEOpMCJqlIDVUYZB0CWRfecYjS9O1idlH9Bfdk2hlesM819k4sZC0BRQZBPcmfbRUM42X5e57zGUHhyYLrn9192eJNWP0ZAw1LQK6pWf78ZAZBGoE4eziVNdoQX90NckPqbI9rrdVZA2mneOrpivzdzDwWoQZDZD"
-app.get('/webhook/',function(req,res) {
-
+app.get('/webhook/', function(req, res) {
 	if (req.query['hub.verify_token'] === "admin@1023") {
 		res.send(req.query['hub.challenge'])
 	}
-	else {
-		res.send("wrong token")
-	}
+	res.send("Wrong token")
 })
-app.post('/webhook/',function(req,res) {
 
-	let messaging_events = req.body.entry[0].messaging_events
+app.post('/webhook/', function(req, res) {
+	let messaging_events = req.body.entry[0].messaging
 	for (let i = 0; i < messaging_events.length; i++) {
 		let event = messaging_events[i]
 		let sender = event.sender.id
 		if (event.message && event.message.text) {
 			let text = event.message.text
-			sendText(sender,"Text echo: " + text.substring(0,100))
+			sendText(sender, "Text echo: " + text.substring(0, 100))
 		}
 	}
 	res.sendStatus(200)
-
 })
+
 function sendText(sender, text) {
 	let messageData = {text: text}
 	request({
 		url: "https://graph.facebook.com/v2.6/me/messages",
-		qs : {access_token: tok},
+		qs : {access_token: token},
 		method: "POST",
 		json: {
 			recipient: {id: sender},
