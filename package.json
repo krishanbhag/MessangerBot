@@ -1,0 +1,24 @@
+{
+  "name": "fbmessengerbot",
+  "version": "1.0.0",
+  "description": "Fb messenger Bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krishanbhag/MessangerBot.git"
+  },
+  "author": "Krishna Shanbhag",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/krishanbhag/MessangerBot/issues"
+  },
+  "homepage": "https://github.com/krishanbhag/MessangerBot#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "request": "^2.83.0"
+  }
+}
