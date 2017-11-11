@@ -16,7 +16,7 @@ app.get('/',function(req,res) {
  res.send('Test')
 
 })
-let tok = "EAAM6vqeZBUsQBAEh4lyEOpMCJqlIDVUYZB0CWRfecYjS9O1idlH9Bfdk2hlesM819k4sZC0BRQZBPcmfbRUM42X5e57zGUHhyYLrn9192eJNWP0ZAw1LQK6pWf78ZAZBGoE4eziVNdoQX90NckPqbI9rrdVZA2mneOrpivzdzDwWoQZDZD"
+let token = "EAAM6vqeZBUsQBAEh4lyEOpMCJqlIDVUYZB0CWRfecYjS9O1idlH9Bfdk2hlesM819k4sZC0BRQZBPcmfbRUM42X5e57zGUHhyYLrn9192eJNWP0ZAw1LQK6pWf78ZAZBGoE4eziVNdoQX90NckPqbI9rrdVZA2mneOrpivzdzDwWoQZDZD"
 app.get('/webhook/', function(req, res) {
 	if (req.query['hub.verify_token'] === "admin@1023") {
 		res.send(req.query['hub.challenge'])
