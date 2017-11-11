@@ -29,6 +29,8 @@ app.post('/webhook/', function(req, res) {
 	for (let i = 0; i < messaging_events.length; i++) {
 		let event = messaging_events[i]
 		let sender = event.sender.id
+		console.log("**** sender Id" + sender)
+		console.log("**** Message" + event.message.text)
 		if (event.message && event.message.text) {
 			let text = event.message.text
 			sendText(sender, "Text echo: " + text.substring(0, 100))
@@ -49,9 +51,9 @@ function sendText(sender, text) {
 		}
 	}, function(error, response, body) {
 		if (error) {
-			console.log("sending error")
+			console.log("**** sending error")
 		} else if (response.body.error) {
-			console.log("response body error")
+			console.log("**** response body error")
 		}
 	})
 }
