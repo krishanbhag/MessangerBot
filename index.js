@@ -18,7 +18,7 @@ app.get('/',function(req,res) {
 })
 app.get('/webhook/',function(req,res) {
 
-	req.send('167308528')
+	res.send('167308528')
 	// if (req.query['hub.verify_token'] === "admin@1023") {
 	// 	req.send(req.query['hub.challenge'])
 	// }
