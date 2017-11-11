@@ -22,10 +22,8 @@ let token = "EAAM6vqeZBUsQBAEtaHZBLLAccAQ9gE8qi1bP2rUreoBMJHHYZCZB6pPcBv9fsSA57l
 
 // Facebook 
 
-app.get('/webhook/', function(req, res) {
-	console.log("****** test")
+app.get('/webhook/', function(req, res) {	
 	if (req.query['hub.verify_token'] === "admin@1023") {
-		console.log("****** test2")
 		res.send(req.query['hub.challenge'])
 	}
 	res.send("Wrong token")
@@ -43,6 +41,7 @@ app.post('/webhook/', function(req, res) {
 	}
 	res.sendStatus(200)
 })
+
 
 function sendText(sender, text) {
 	let messageData = {text: text}
