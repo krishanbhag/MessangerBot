@@ -16,18 +16,15 @@ app.get('/',function(req,res) {
  res.send('Test')
 
 })
-app.get('/wife',function(req,res) {
- res.send('Pavana')
-
-})
 app.get('/webhook/',function(req,res) {
 
-	if (req.query['hub.verify_token'] === "admin@1023") {
-		req.send(req.query['hub.challenge'])
-	}
-	else {
-		req.send("wrong token")
-	}
+	req.send('167308528')
+	// if (req.query['hub.verify_token'] === "admin@1023") {
+	// 	req.send(req.query['hub.challenge'])
+	// }
+	// else {
+	// 	req.send("wrong token")
+	// }
 })
 app.listen(app.get('port'),function() {
  
