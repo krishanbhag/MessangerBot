@@ -31,15 +31,20 @@ app.get('/webhook/', function(req, res) {
 
 app.post('/webhook/', function(req, res) {
 	let messaging_events = req.body.entry[0].messaging
-	for (let i = 0; i < messaging_events.length; i++) {
-		let event = messaging_events[i]
-		let sender = event.sender.id
-		if (event.message && event.message.text) {
-			let text = event.message.text
-			sendText(sender, "Text echo: " + text.substring(0, 100))
+	if (messaging_events) {
+		for (let i = 0; i < messaging_events.length; i++) {
+			let event = messaging_events[i]
+			let sender = event.sender.id
+			if (event.message && event.message.text) {
+				let text = event.message.text
+				sendText(sender, "Text echo: " + text.substring(0, 100))
+			}
 		}
+		res.sendStatus(200)
 	}
-	res.sendStatus(200)
+	else {
+		res.sendStatus(404)
+	}
 })
 
 
